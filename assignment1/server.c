@@ -63,10 +63,7 @@ int main(int argc, char const *argv[])
     /*
     	Privilege separation starts from here. The code above majorly deals
     	with setting up connection. The code below deals with reading and sending messages.
-    	This reading and sending part of the server does not need any root privileges
-    	so therefore we are creating a new child process for this and set uid to "Nobody"
-    	Hence, providing some security.
-    
+    	   
     */
     
     printf("Creating the child process \n");
@@ -82,7 +79,7 @@ int main(int argc, char const *argv[])
     	printf("There were some errors while dropping the privileges. \n");
     	return -1;
     }
-    printf("Privileges are dropped by setting the user to Nobody \n");  
+    printf("Privileges are dropped by setting the user privileges to Nobody \n");  
     valread = read( new_socket , buffer, 1024);
     printf("%s\n",buffer );
     send(new_socket , hello , strlen(hello) , 0 );
