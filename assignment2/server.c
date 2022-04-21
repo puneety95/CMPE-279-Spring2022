@@ -93,8 +93,9 @@ int main(int argc, char const *argv[])
     printf("Privileges are dropped by setting the user privileges to Nobody \n"); 
     //Using execvp function
     char buff[10];
-    sprintf(buff, "%d", p_socket); 
-    char* arguments[] = {argv[0], buff, NULL};
+    sprintf(buff, "%d", p_socket);
+    char *file_name = (char *)argv[0]; 
+    char* arguments[] = {file_name, buff, NULL};
     int val = execvp(argv[0], arguments);
     if(val < 0){
         printf("There were some erros while executing execvp function");
