@@ -94,15 +94,15 @@ int main(int argc, char const *argv[])
     //Using execvp function
     char buff[10];
     sprintf(buff, "%d", p_socket); 
-    argv[argc++] = buff;
-    int val = execvp(argv[0], argv);
+    char* arguments[] = {argv[0], buff, NULL};
+    int val = execvp(argv[0], arguments);
     if(val < 0){
         printf("There were some erros while executing execvp function");
         return -1;
       }
     }
     else if(child_process < 0 ){
-    printf("There were some errors while forking \n");    
+        printf("There were some errors while forking \n");    
     }    
     else{
     	wait(NULL);
