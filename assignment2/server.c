@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
     pid_t child_process;    
 
     if(argc==2){
-        printf("Inside child process after execvp call");
+        printf("Inside child process after execvp call \n");
         int soc_value = atoi(argv[1]);
         valread = read( soc_value , buffer, 1024);
         printf("%s\n",buffer );
